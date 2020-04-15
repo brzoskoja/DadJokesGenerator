@@ -46,15 +46,15 @@ function updateJoke(joke) {
 }
 
 function publishToTwitter() {
-    var url = "DadJokes";
-    var text = document.getElementById("joke").textContent;
+    let url = "DadJokes";
+    let text = document.getElementById("joke").textContent;
     let win = window.open('http://twitter.com/share?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text) + "&hashtags=dadjokes", '', 'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0', "_blank");
     win.focus();
 }
 
 function sendEmail() {
 
-    var text = document.getElementById("joke").textContent;
+    let text = document.getElementById("joke").textContent;
     let subject = "I have a great joke for you!"; 
     window.open(`mailto:?subject=${subject}&body=${text}`);
 
