@@ -56,6 +56,6 @@ function sendEmail() {
 
     var text = document.getElementById("joke").textContent;
     let subject = "I have a great joke for you!"; 
-    window.open(`mailto:test@example.com?subject=${subject}&body=${text}`);
+    window.open(`mailto:?subject=${subject}&body=${text}`);
 
 }
