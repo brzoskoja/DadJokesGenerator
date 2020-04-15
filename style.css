@@ -17,4 +17,8 @@ h5 {
 .button-icon {
   min-width: 40px;
 }
+
+button {
+  border: white;
+}
 /*# sourceMappingURL=style.css.map */

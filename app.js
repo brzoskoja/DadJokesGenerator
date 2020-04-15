@@ -1,9 +1,13 @@
 var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
 
 changeColors(randomColor());
-let nextButton = document.getElementById("more")
+getNextJoke();
+let nextButton = document.getElementById("more");
 nextButton.addEventListener("click", getNextJoke);
-
+let twitterButton = document.getElementById("twitter");
+twitterButton.addEventListener("click", publishToTwitter)
+let facebookButton = document.getElementById("facebook");
+facebookButton.addEventListener("click", publishToFacebook);
 
 
 
@@ -22,22 +26,36 @@ function changeColors(randomColor) {
 
 function randomColor() {
     return colors[Math.floor(Math.random() * 12)];
-} 
-
-function getNextJoke(){
-   let url="https://icanhazdadjoke.com/";
-   let params ={
-       headers:{
-        "Accept": "application/json"
-       }
-   }
-   let joke ;
-    fetch(url,params)
-   .then(data=>{return data.json()})
-   .then(res =>{updateJoke(res.joke)});
 }
-function updateJoke(joke)
-{
+
+function getNextJoke() {
+    let url = "https://icanhazdadjoke.com/";
+    let params = {
+        headers: {
+            "Accept": "application/json"
+        }
+    }
+    let joke;
+    fetch(url, params)
+        .then(data => { return data.json() })
+        .then(res => { updateJoke(res.joke) });
+}
+function updateJoke(joke) {
     document.getElementById("joke").textContent = joke;
     changeColors(randomColor());
+}
+
+function publishToTwitter() {
+    var url = "DadJokes";
+    var text = document.getElementById("joke").textContent;
+    let win = window.open('http://twitter.com/share?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text) + "&hashtags=dadjokes", '', 'left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0', "_blank");
+    win.focus();
+}
+
+function publishToFacebook() {
+
+    var text = document.getElementById("joke").textContent;
+    let subject = "I have a great joke for you!"; 
+    window.open(`mailto:test@example.com?subject=${subject}&body=${text}`);
+
 }
