@@ -53,9 +53,8 @@ function publishToTwitter() {
 }
 
 function sendEmail() {
-
     let text = document.getElementById("joke").textContent;
-    let subject = "I have a great joke for you!"; 
+    let subject = "I have a great joke for you!";
     window.open(`mailto:?subject=${subject}&body=${text}`);
 
 }
