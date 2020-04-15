@@ -7,7 +7,7 @@ nextButton.addEventListener("click", getNextJoke);
 let twitterButton = document.getElementById("twitter");
 twitterButton.addEventListener("click", publishToTwitter)
 let facebookButton = document.getElementById("facebook");
-facebookButton.addEventListener("click", publishToFacebook);
+facebookButton.addEventListener("click", sendEmail);
 
 
 
@@ -52,7 +52,7 @@ function publishToTwitter() {
     win.focus();
 }
 
-function publishToFacebook() {
+function sendEmail() {
 
     var text = document.getElementById("joke").textContent;
     let subject = "I have a great joke for you!"; 
